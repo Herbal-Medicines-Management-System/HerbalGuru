@@ -1,7 +1,26 @@
-import express from "express";
+import express from 'express';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+import userRoute from './routes/user.route.js';
 
 const app = express();
+dotenv.config();
 
-app.listen(8000, ()=>{
-    console.log("Backend Server is running");
+mongoose.set('strictQuery', true);
+
+const connect = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URL);
+    console.log('DB Connected successfully');
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+app.use("/api/users", userRoute);
+
+app.listen(8800, () => {
+  connect();
+  console.log('Backend Server is running');
 });
+ 
