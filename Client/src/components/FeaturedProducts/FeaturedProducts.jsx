@@ -38,8 +38,8 @@ const FeaturedProducts = ({ type }) => {
             img2: "/img/item4_back.webp",
             title: "NutriBiotic, Immunity, Sodium Ascorbate, Crystalline Powder, (227 g)",
             isNew: true,
-            oldPrice: 19,
-            price: 12,
+            oldPrice: 4500,
+            price: 4000,
         },
         {
             id: 5,
@@ -47,8 +47,8 @@ const FeaturedProducts = ({ type }) => {
             img2: "/img/item5_back.jpg",
             title: "California Gold Nutrition, Baby Vitamin D3 Liquid, 10 mcg (400 IU)",
             isNew: true,
-            oldPrice: 19,
-            price: 12,
+            oldPrice: 2500,
+            price: 1500,
         },
     ]
 
