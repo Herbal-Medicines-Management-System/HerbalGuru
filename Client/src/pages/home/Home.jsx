@@ -9,6 +9,7 @@ import Contact from '../../components/Contact/Contact';
 import Hero from '../../components/Hero/Hero';
 import Virtual from '../../components/Virtual/Virtual';
 import NewArrivals from '../../components/NewArrivals/NewArrivals';
+import BestSellers from '../../components/BestSellers/BestSellers';
 
 const Home = () => {
   return (
@@ -20,6 +21,7 @@ const Home = () => {
       <Categories />
       <TrendingProducts type="trending" />
       <NewArrivals type="new" />
+      <BestSellers type="best" />
       <Contact />
     </div>
   );
