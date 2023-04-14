@@ -10,6 +10,7 @@ import Product from "./pages/product/Product";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Login from "./pages/login/Login";
+import Register from "./pages/register/Register";
 
 import "./app.scss";
 
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path:"/login",
         element:<Login />
+      },
+      {
+        path:"/register",
+        element:<Register />
       },
     ]
     
