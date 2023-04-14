@@ -1,11 +1,14 @@
 import React from 'react';
 import "./Hero.scss";
 import { Link } from 'react-router-dom';
-
+import { motion } from 'framer-motion';
 import { RiShoppingBagFill } from 'react-icons/ri';
 import { BsArrowRight } from 'react-icons/bs';
 
 const Hero = () => {
+
+    const transition = { duration: 3, type: "spring" }
+
     return (
         <div className='hero'>
             {/* left side */}
@@ -19,9 +22,22 @@ const Hero = () => {
 
             {/* middle side */}
             <div className='wrapper'>
-                <div className='greenCircle'></div>
-                <img src='/img/hero.png' alt='hero' width={600} />
-                <div className='cart2'>
+                <motion.div
+                    initial={{ bottom: "6rem" }}
+                    whileInView={{ bottom: "0rem" }}
+                    className='greenCircle'
+                    transition={transition}
+                ></motion.div>
+                <motion.img
+                    transition={transition}
+                    initial={{ bottom: "-6rem" }}
+                    whileInView={{ bottom: "0rem" }}
+                    src='/img/hero.png' alt='hero' width={600} />
+                <motion.div
+                    transition={transition}
+                    initial={{ right: "4%" }}
+                    whileInView={{ right: "2%" }}
+                    className='cart2'>
                     <RiShoppingBagFill />
                     <div className='shopnow'>
                         <button>
@@ -31,7 +47,7 @@ const Hero = () => {
                             <BsArrowRight />
                         </div>
                     </div>
-                </div>
+                </motion.div>
             </div>
 
             {/* right side */}

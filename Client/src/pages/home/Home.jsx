@@ -6,6 +6,7 @@ import FeaturedProducts from '../../components/FeaturedProducts/FeaturedProducts
 import Categories from '../../components/Categories/Categories';
 import Contact from '../../components/Contact/Contact';
 import Hero from '../../components/Hero/Hero';
+import Virtual from '../../components/Virtual/Virtual';
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <Slider />
       <Hero />
       <FeaturedProducts type="featured" />
+      <Virtual />
       <Categories />
       <FeaturedProducts type="trending" />
       <Contact />
