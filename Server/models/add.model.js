@@ -51,10 +51,6 @@ const addSchema = new Schema(
       type: [String],
       required: false,
     },
-    images: {
-      type: String,
-      required: true,
-    },
     sales: {
       type: Number,
       default: 0,

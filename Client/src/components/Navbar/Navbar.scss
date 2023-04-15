@@ -1,11 +1,13 @@
 .navbar {
   height: 60px;
+  z-index: 100;
+  position: relative;
 
   .wrapper {
     padding: 10px 30px;
     display: flex;
     align-items: center;
-    justify-content: space-between; 
+    justify-content: space-between;
 
     .item {
       display: flex;
@@ -29,7 +31,42 @@
         gap: 15px;
         color: #777;
         cursor: pointer;
+        margin-top: 5px;
 
+        .userProfile {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          position: relative;
+          margin-bottom: 1px;
+
+          .username {
+            font-size: 18px;
+          }
+
+          img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            cursor: pointer;
+          }
+          .options {
+            position: absolute;
+            top: 35px;
+            width: 118px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            border: 1px solid lightgrey;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            color: gray;
+            font-weight: 300;
+            
+          }
+        }
         .cartIcon {
           position: relative;
 
