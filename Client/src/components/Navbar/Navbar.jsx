@@ -130,8 +130,8 @@ const Navbar = () => {
                   {open && (<div className='options'>
                     {currentUser?.isSeller && (
                       <>
-                        <span1>My Products</span1>
-                        <span1>Add New Product</span1>
+                        <span>My Products</span>
+                        <span>Add New Product</span>
                       </>
                     )}
                     <span>Orders</span>
