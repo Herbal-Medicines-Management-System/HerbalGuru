@@ -43,9 +43,23 @@ export const getAdd = async (req, res, next) => {
   }
 };
 
+
+//get ads acoording to filtering
 export const getAdds = async (req, res, next) => {
+  const q = req.query;
+  const filters = {
+    ...(q.userId && { userId: q.userId }),
+    ...(q.cat && { cat: q.cat }),
+    ...((q.min || q.max) && {
+      price: {
+        ...(q.min && { $gt: q.min }),
+        ...(q.max && { $lt: q.max }),
+      },
+    }),
+    ...(q.search && { title: { $regex: q.search, $options: 'i' } }),
+  };
   try {
-    const add = await Add.find();
+    const add = await Add.find(filters).sort({ [q.sort]: -1 });
     res.status(200).send(add);
   } catch (err) {
     next(err);
