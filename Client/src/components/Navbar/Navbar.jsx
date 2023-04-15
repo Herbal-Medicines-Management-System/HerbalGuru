@@ -7,21 +7,31 @@ import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.scss';
-
+import newRequest from "../../utils/newRequest";
 
 
 
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
+
+
     
-    const currentUser = {
-        id: 1,
-        username: 'chandima',
-        isSeller: true,
-      };
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await newRequest.post("/auth/logout");
+      localStorage.setItem("currentUser", null);
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className='navbar'>
@@ -91,15 +101,15 @@ const Navbar = () => {
 
           {!currentUser && (
             <div className='item'>
-              <Link className='link' to='/'>
-                Become a Seller
+              <Link className='link' to='/login'>
+                Sign in
               </Link>
             </div>
           )}
 
           {!currentUser?.isSeller && (
             <div className='item'>
-              <Link className='link' to='/'>
+              <Link className='link' to='/register'>
                 Join
               </Link>
             </div>
@@ -113,7 +123,7 @@ const Navbar = () => {
                 <div className='userProfile' onClick={() => setOpen(!open)}>
                
                   <img
-                    src='https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-image-700-205124837.jpg'
+                    src={currentUser.img || 'https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-image-700-205124837.jpg'}
                     alt='pro pic'
                   />
                   <span className='username'>{currentUser?.username}</span>
@@ -126,7 +136,9 @@ const Navbar = () => {
                     )}
                     <span>Orders</span>
                     <span>Messages</span>
-                    <span>Logout</span>
+                    <Link className="link" onClick={handleLogout}>
+                    Logout
+                  </Link>
                   </div>)}
                 </div>
                
