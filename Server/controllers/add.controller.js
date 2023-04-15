@@ -45,6 +45,8 @@ export const getAdd = async (req, res, next) => {
 
 export const getAdds = async (req, res, next) => {
   try {
+    const add = await Add.find();
+    res.status(200).send(add);
   } catch (err) {
     next(err);
   }
