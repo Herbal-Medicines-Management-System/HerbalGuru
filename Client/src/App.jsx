@@ -9,6 +9,8 @@ import Category from "./pages/Category/Category";
 import Product from "./pages/product/Product";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
+import Login from "./pages/login/Login";
+import Register from "./pages/register/Register";
 
 import "./app.scss";
 
@@ -24,6 +26,7 @@ const Layout = () => {
 
 const router = createBrowserRouter([
   {
+    
     path:"/",
     element:<Layout />,
     children: [
@@ -39,7 +42,16 @@ const router = createBrowserRouter([
         path: "/product/:id",
         element: <Product />
       },
+      {
+        path:"/login",
+        element:<Login />
+      },
+      {
+        path:"/register",
+        element:<Register />
+      },
     ]
+    
   },
 ])
 
