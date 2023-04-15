@@ -32,8 +32,12 @@ export const deleteAdd = async (req, res, next) => {
   }
 };
 
+//get seleted add from Add model
 export const getAdd = async (req, res, next) => {
   try {
+    const add = await Add.findById(req.params.id);
+    if (!add) return next(createError(404, 'Add Not Found!'));
+    res.status(200).send(add);
   } catch (err) {
     next(err);
   }
