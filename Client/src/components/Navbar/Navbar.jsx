@@ -110,7 +110,7 @@ const Navbar = () => {
           {!currentUser?.isSeller && (
             <div className='item'>
               <Link className='link' to='/register'>
-                Join
+                Become a Seller
               </Link>
             </div>
           )}
