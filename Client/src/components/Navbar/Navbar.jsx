@@ -10,19 +10,17 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.scss';
 import newRequest from "../../utils/newRequest";
+import Cart from "../Cart/Cart";
 
 
 
 
 const Navbar = () => {
-    const [open, setOpen] = useState(false);
 
-
-    
+  const [open, setOpen] = useState(false);
+  const [cart, setcart] = useState(false);
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-
   const navigate = useNavigate();
-
   const handleLogout = async () => {
     try {
       await newRequest.post("/auth/logout");
@@ -144,13 +142,14 @@ const Navbar = () => {
                
             )}
             <FavoriteBorderOutlinedIcon />
-            <div className='cartIcon'>
+            <div className='cartIcon' onClick={() => setcart(!cart)}>
               <ShoppingCartOutlinedIcon />
               <span>0</span>
             </div>
           </div>
         </div>
       </div>
+      {cart && <Cart />}
     </div>
   );
 };

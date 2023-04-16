@@ -4,6 +4,7 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import BalanceIcon from '@mui/icons-material/Balance';
 import Banner from '../../components/Banner/Banner';
+import NewArrivals from '../../components/NewArrivals/NewArrivals';
 
 const Product = () => {
 
@@ -16,7 +17,7 @@ const Product = () => {
   ]
 
   return (
-    <><Banner /><div className='product'>
+    <><><Banner /><div className='product'>
 
       <div className='left'>
         <div className='images'>
@@ -59,7 +60,7 @@ const Product = () => {
         </div>
         <hr />
       </div>
-    </div></>
+    </div></><NewArrivals type="new" /></>
   );
 };
 
