@@ -1,5 +1,4 @@
-import React, {  useState } from "react";
-
+import React, { useState } from 'react';
 
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import SearchIcon from '@mui/icons-material/Search';
@@ -9,23 +8,19 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 
 import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.scss';
-import newRequest from "../../utils/newRequest";
-import Cart from "../Cart/Cart";
-
-
-
+import newRequest from '../../utils/newRequest';
+import Cart from '../Cart/Cart';
 
 const Navbar = () => {
-
   const [open, setOpen] = useState(false);
   const [cart, setcart] = useState(false);
-  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
   const navigate = useNavigate();
   const handleLogout = async () => {
     try {
-      await newRequest.post("/auth/logout");
-      localStorage.setItem("currentUser", null);
-      navigate("/");
+      await newRequest.post('/auth/logout');
+      localStorage.setItem('currentUser', null);
+      navigate('/');
     } catch (err) {
       console.log(err);
     }
@@ -115,31 +110,36 @@ const Navbar = () => {
 
           <div className='icons'>
             <SearchIcon />
-            
+
             {currentUser && (
-              
-                <div className='userProfile' onClick={() => setOpen(!open)}>
-               
-                  <img
-                    src={currentUser.img || 'https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-image-700-205124837.jpg'}
-                    alt='pro pic'
-                  />
-                  <span className='username'>{currentUser?.username}</span>
-                  {open && (<div className='options'>
+              <div className='userProfile' onClick={() => setOpen(!open)}>
+                <img
+                  src={
+                    currentUser.img ||
+                    'https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-image-700-205124837.jpg'
+                  }
+                  alt='pro pic'
+                />
+                <span className='username'>{currentUser?.username}</span>
+                {open && (
+                  <div className='options'>
                     {currentUser?.isSeller && (
                       <>
-                        <span>My Products</span>
+                        <Link className='link' to='/supplier/myproducts'>
+                          MyProducts
+                        </Link>
                         <span>Add New Product</span>
                       </>
                     )}
+                    MyProducts
                     <span>Orders</span>
                     <span>Messages</span>
-                    <Link className="link" onClick={handleLogout}>
-                    Logout
-                  </Link>
-                  </div>)}
-                </div>
-               
+                    <Link className='link' onClick={handleLogout}>
+                      Logout
+                    </Link>
+                  </div>
+                )}
+              </div>
             )}
             <FavoriteBorderOutlinedIcon />
             <div className='cartIcon' onClick={() => setcart(!cart)}>
