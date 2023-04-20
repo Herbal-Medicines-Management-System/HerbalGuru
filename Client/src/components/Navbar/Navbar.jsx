@@ -128,7 +128,10 @@ const Navbar = () => {
                         <Link className='link' to='/supplier/myproducts'>
                           MyProducts
                         </Link>
-                        <span>Add New Product</span>
+                        <Link className='link' to='/supplier/add'>
+                        Add New Product
+                        </Link>
+                        
                       </>
                     )}
                     MyProducts
