@@ -29,20 +29,21 @@
         tr {
           height: 50px;
           th {
-            text-align: left;
+            text-align: center;
           }
           td {
-  
+          margin-bottom: 100px;
+  text-align: center;
             sup{
               font-size: 12px;
             }
             
             .img {
-              width: 50px;
-              height: 25px;
-              object-fit: cover;
-              
-            }
+                width: 150px;
+                height: 150px;
+                object-fit: cover;
+              }
+    
   
             .deleteIcon {
                 padding: 10px;
@@ -54,7 +55,7 @@
   
           }
           &:nth-child(even) {
-            background-color: #1dbf730f;
+            background-color: #5dd19b1a;
           }
         }
       }

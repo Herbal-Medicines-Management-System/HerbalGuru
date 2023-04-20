@@ -2,7 +2,7 @@ import React from 'react';
 import './Orders.scss';
 
 function Orders() {
-  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
   return (
     <div className='orders'>
@@ -18,7 +18,7 @@ function Orders() {
             <th>Image</th>
             <th>Title</th>
             <th>Price(LKR)</th>
-            <th>{currentUser?.isSeller ? "Buyer" : "Seller"}</th>
+            <th>{currentUser?.isSeller ? 'Buyer' : 'Seller'}</th>
             <th>Contact</th>
           </tr>
 
@@ -105,10 +105,6 @@ function Orders() {
               {/* <DeleteOutlinedIcon /> */}
             </td>
           </tr>
-
-    
-
-        
         </table>
       </div>
     </div>

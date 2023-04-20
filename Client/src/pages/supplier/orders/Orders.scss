@@ -29,21 +29,21 @@
       tr {
         height: 50px;
         th {
-          text-align: left;
+          text-align: center;
         }
         td {
+          text-align: center;
           sup {
             font-size: 12px;
           }
 
           .img {
-            width: 50px;
-            height: 25px;
+            width: 150px;
+            height: 150px;
             object-fit: cover;
           }
 
           .contactIcon {
-            margin-left: 20px;
             width: 20px;
             cursor: pointer;
             align-items: center;
