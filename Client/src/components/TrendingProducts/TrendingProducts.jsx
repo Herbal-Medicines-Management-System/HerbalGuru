@@ -1,6 +1,6 @@
 import React from 'react';
 import "./TrendingProducts.scss";
-import Card from '../Card/Card';
+import CardWithoutOldPrice from '../CardWithoutOldPrice/CardWithoutOldPrice';
 
 const TrendingProducts = ({ type }) => {
 
@@ -53,7 +53,7 @@ const TrendingProducts = ({ type }) => {
             </div>
             <div className='bottom'>
                 {data.map(item => (
-                    <Card item={item} key={item.id} />
+                    <CardWithoutOldPrice item={item} key={item.id} />
                 ))}
             </div>
         </div>

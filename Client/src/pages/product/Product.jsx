@@ -4,16 +4,31 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import BalanceIcon from '@mui/icons-material/Balance';
 import Banner from '../../components/Banner/Banner';
-import NewArrivals from '../../components/NewArrivals/NewArrivals';
+import CustomersViwed from '../../components/CustomersViwed/CustomersViwed';
+import Cart from '../../components/Cart/Cart';
+import Star from '../../components/Star/Star';
 
 const Product = () => {
 
   const [selectedImg, setSelectedImg] = useState(0)
   const [quantity, setQuantity] = useState(0)
+  const [cart, setcart] = useState(false);
 
   const images = [
     "/img/b1.webp",
     "/img/b1_back.jpg",
+  ]
+
+  const stars = [
+    {
+      stars: 4,
+    }
+  ]
+
+  const reviews = [
+    {
+      reviews: 26,
+    }
   ]
 
   return (
@@ -31,6 +46,7 @@ const Product = () => {
       <div className='right'>
         <h1>NOW Foods, Essential Oils, Lavender, 1 fl oz (30 ml)</h1>
         <h4>By Now Foods</h4>
+        <Star stars={stars} reviews={reviews} />
         <span className='price'>Rs. 2500</span>
         <p>NOW Foods is a natural products company that offers a wide range of supplements, personal care products, and essential oils. The Essential Oils Lavender product is a 1 fl oz (30 ml) bottle of pure lavender essential oil, which is extracted from the flowers of the lavender plant through a steam distillation process. Lavender essential oil is popular for its calming and relaxing properties, and can be used in aromatherapy, massage, or as a natural fragrance for DIY beauty and cleaning products. NOW Foods' lavender essential oil is 100% pure and free of synthetic ingredients, and is tested for purity and quality.</p>
         <div className='qty'>
@@ -38,7 +54,7 @@ const Product = () => {
           {quantity}
           <button onClick={() => setQuantity((prev) => prev + 1)}>+</button>
         </div>
-        <button className='add'>
+        <button className='add' onClick={() => setcart(!cart)}>
           <AddShoppingCartIcon /> ADD TO CART
         </button>
         <div className='links'>
@@ -60,7 +76,8 @@ const Product = () => {
         </div>
         <hr />
       </div>
-    </div></><NewArrivals type="new" /></>
+      {cart && <Cart />}
+    </div></><CustomersViwed type="customers" /></>
   );
 };
 
