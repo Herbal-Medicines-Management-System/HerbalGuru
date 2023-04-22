@@ -11,6 +11,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.scss';
 import newRequest from "../../utils/newRequest";
 import Cart from "../Cart/Cart";
+import { useSelector } from 'react-redux';
 
 
 
@@ -19,6 +20,8 @@ const Navbar = () => {
 
   const [open, setOpen] = useState(false);
   const [cart, setcart] = useState(false);
+  const products = useSelector(state => state.cart.products);
+
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
   const navigate = useNavigate();
   const handleLogout = async () => {
@@ -144,7 +147,7 @@ const Navbar = () => {
             <FavoriteBorderOutlinedIcon />
             <div className='cartIcon' onClick={() => setcart(!cart)}>
               <ShoppingCartOutlinedIcon />
-              <span>0</span>
+              <span>{products.length}</span>
             </div>
           </div>
         </div>

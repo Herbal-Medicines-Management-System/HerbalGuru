@@ -1,47 +1,13 @@
 import React from 'react';
 import "./TrendingProducts.scss";
 import CardWithoutOldPrice from '../CardWithoutOldPrice/CardWithoutOldPrice';
+import useFetch from "../../hooks/useFetch";
 
 const TrendingProducts = ({ type }) => {
 
-    const data = [
-        {
-            id: 1,
-            img: "/img/item6.jpg",
-            img2: "/img/item6_back.jpg",
-            title: "One-A-Day, Women's Petites Complete Multivitamin, 160 Tablets",
-            price: 2500,
-        },
-        {
-            id: 2,
-            img: "/img/item7.webp",
-            img2: "/img/item7_back.webp",
-            title: "Nature's Way, Willow Bark, 400 mg, 100 Vegan Capsules",
-            price: 1800,
-        },
-        {
-            id: 3,
-            img: "/img/item8.webp",
-            img2: "/img/item8_back.webp",
-            title: "O'Keeffe's, Lip Repair, Cooling Relief, Lip Balm, 0.15 oz (4.2 g)",
-            price: 1200,
-        },
-        {
-            id: 4,
-            img: "/img/item9.jpg",
-            img2: "/img/item9_back.webp",
-            title: "The Spice Lab, Nashville Hot Chicken Seasoning, 6.5 oz (184 g)",
-            price: 4000,
-        },
-        {
-            id: 5,
-            img: "/img/item10.webp",
-            img2: "/img/item10_back.webp",
-            title: "Six Star, Creatine X3, Fruit Punch, 2.18 lbs (990 g)",
-            price: 1500,
-        },
-    ]
-
+    const { data, loading, error } = useFetch(
+        `/products?populate=*&[filters][type][$eq]=${type}`
+    );
 
     return (
         <div className='trendingProducts'>
@@ -52,9 +18,12 @@ const TrendingProducts = ({ type }) => {
                 </p>
             </div>
             <div className='bottom'>
-                {data.map(item => (
-                    <CardWithoutOldPrice item={item} key={item.id} />
-                ))}
+                {error
+                    ? "Something went wrong!"
+                    : loading
+                        ? "loading"
+                        : data?.map((item) => <CardWithoutOldPrice item={item} key={item.id} />)
+                }
             </div>
         </div>
     );

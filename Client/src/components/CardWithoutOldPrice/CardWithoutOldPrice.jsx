@@ -3,17 +3,18 @@ import "./CardWithoutOldPrice.scss";
 import { Link } from "react-router-dom";
 
 const CardWithoutOldPrice = ({ item }) => {
-    console.log(item);
+
     return (
+
         <Link className="link" to={`/product/${item.id}`}>
             <div className="cardWithoutOldPrice">
                 <div className="image">
-                    <img src={item.img} alt="" className="mainImg" />
-                    <img src={item.img2} alt="" className="secondImg" />
+                    <img src={'http://localhost:1337' + item.attributes?.img?.data?.attributes?.url} alt="" className="mainImg" />
+                    <img src={'http://localhost:1337' + item.attributes?.img2?.data?.attributes?.url} alt="" className="secondImg" />
                 </div>
-                <h2>{item.title}</h2>
+                <h2>{item?.attributes?.title}</h2>
                 <div className="prices">
-                    <h3>Rs. {item.price}</h3>
+                    <h3>Rs. {item?.attributes?.price}</h3>
                 </div>
             </div>
         </Link>
