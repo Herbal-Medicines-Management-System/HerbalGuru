@@ -47,6 +47,10 @@ const addSchema = new Schema(
       type: String,
       required: true,
     },
+    shortDesc: {
+      type: String,
+      required: false,
+    },
     features: {
       type: [String],
       required: false,
