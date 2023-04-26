@@ -105,7 +105,7 @@ const Navbar = () => {
           {!currentUser?.isSeller && (
             <div className="item">
               <Link className="link" to="/register">
-                Become a Seller
+                Join
               </Link>
             </div>
           )}
