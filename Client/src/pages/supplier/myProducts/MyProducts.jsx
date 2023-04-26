@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 // import { Link } from 'react-router-dom';
 import './MyProducts.scss';
+import { useNavigate } from 'react-router-dom';
 import getCurrentUser from '../../../utils/getCurrentUser';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import newRequest from '../../../utils/newRequest';
@@ -15,7 +16,7 @@ function MyProducts() {
   const { isLoading, error, data } = useQuery({
     queryKey: ['myProducts'],
     queryFn: () =>
-      newRequest.get(`/adds?userId=${currentUser.id}`).then((res) => {
+      newRequest.get(`/adds?userId=${currentUser._id}`).then((res) => {
         return res.data;
       }),
   });
@@ -31,8 +32,17 @@ function MyProducts() {
 
   const handleDelete = (id) => {
     mutation.mutate(id);
+    // const updatedData = data.filter(add => add._id !== id);
+    // // Update the data state with the filtered data
+    // data(updatedData);
+    queryFn();
   };
 
+  const navigate = useNavigate();
+
+  const handlUpdate = (id) => {
+    navigate("/")
+  }
   return (
     <div className='myProducts'>
       {isLoading ? (
@@ -56,27 +66,30 @@ function MyProducts() {
               <th>Action</th>
             </tr>
 
-          { data.map(add=>( 
-            <tr key={add._id}>
-              <td>
-                <img
-                  className='img'
-                  src={add.cover}
-                   alt='item img'
-                />
-              </td>
-              <td>{add.title}</td>
-              <td>{add.price}</td>
-              <td>{add.sales}</td>
-              <td>
-                <img
-                  className='deleteIcon'
-                  src='../../../../public/imgIcons/delete-bin-5-line.png'
-                  alt=''
-                  onClick={() => handleDelete(add._id)}
-                />
-              </td>
-            </tr>))}
+            {data.map((add) => (
+              <tr key={add._id}>
+                <td>
+                  <img className='img' src={add.cover} alt='item img' />
+                </td>
+                <td>{add.title}</td>
+                <td>{add.price}</td>
+                <td>{add.sales}</td>
+                <td>
+                  <img
+                    className='deleteIcon'
+                    src='../../../../public/imgIcons/delete-bin-5-line.png'
+                    alt=''
+                    onClick={() => handleDelete(add._id)}
+                  />
+                  <img
+                    className='deleteIcon'
+                    src='../../../../public/imgIcons/update.png'
+                    alt=''
+                    onClick={() => handlUpdate(add._id)}
+                  />
+                </td>
+              </tr>
+            ))}
           </table>
         </div>
       )}

@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
-import React from "react";
+import React from 'react';
 import Home from './pages/home/Home';
 import Category from './pages/Category/Category';
 import Product from './pages/product/Product';
@@ -11,9 +11,9 @@ import MyProducts from './pages/supplier/myProducts/MyProducts';
 import Orders from './pages/supplier/orders/Orders';
 import Add from './pages/supplier/add/Add';
 import Confirmation from './pages/Confirmation/Confirmation';
+import UpdateProduct from './pages/supplier/updateMyProduct/UpdateMyProduct';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import './app.scss';
-
 
 function App() {
   const queryClient = new QueryClient();
@@ -28,7 +28,7 @@ function App() {
       </div>
     );
   };
-  
+
   const router = createBrowserRouter([
     {
       path: '/',
@@ -70,10 +70,14 @@ function App() {
           path: '/success',
           element: <Confirmation />,
         },
+        {
+          path: '/supplier/update',
+          element: <UpdateProduct />,
+        },
       ],
     },
   ]);
-  
+
   return (
     <div>
       <RouterProvider router={router} />
