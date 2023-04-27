@@ -65,3 +65,29 @@ export const getAdds = async (req, res, next) => {
     next(err);
   }
 };
+
+
+//create update selected product
+export const updateAdds = async (req, res, next) => {
+  try {
+    const productId = req.params.id;
+    
+    // Find product by ID and update product details
+    const updatedProduct = await Add.findByIdAndUpdate(
+      productId,
+      {
+        $set: req.body,
+      },
+      { new: true }
+    );
+
+    if (!updatedProduct) {
+      return res.status(404).json({ error: 'product is not found' });
+    }
+
+    return res.json({ message: 'Product details updated successfully', product: updatedProduct });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: 'Server error' });
+  }
+};
