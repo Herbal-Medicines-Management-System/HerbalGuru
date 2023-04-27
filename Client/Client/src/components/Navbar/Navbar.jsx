@@ -8,7 +8,6 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 
 import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.scss";
-import newRequest from "../../utils/newRequest";
 import Cart from "../Cart/Cart";
 import { useSelector } from 'react-redux';
 
@@ -37,32 +36,32 @@ const Navbar = () => {
             <KeyboardArrowDownIcon />
           </div>
           <div className="item">
-            <Link className="link" to="/category/1">
+            <Link className="link" to="/category/16">
               Bath
             </Link>
           </div>
           <div className="item">
-            <Link className="link" to="/category/2">
+            <Link className="link" to="/category/17">
               Beauty
             </Link>
           </div>
           <div className="item">
-            <Link className="link" to="/category/3">
+            <Link className="link" to="/category/18">
               Grocery
             </Link>
           </div>
           <div className="item">
-            <Link className="link" to="/category/4">
+            <Link className="link" to="/category/19">
               Healthy Home
             </Link>
           </div>
           <div className="item">
-            <Link className="link" to="/category/5">
+            <Link className="link" to="/category/20">
               Sports
             </Link>
           </div>
           <div className="item">
-            <Link className="link" to="/category/6">
+            <Link className="link" to="/category/21">
               Supplements
             </Link>
           </div>
