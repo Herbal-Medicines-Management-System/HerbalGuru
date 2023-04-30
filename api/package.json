@@ -14,7 +14,10 @@
     "@strapi/plugin-i18n": "4.9.1",
     "@strapi/plugin-users-permissions": "4.9.1",
     "@strapi/strapi": "4.9.1",
+    "@stripe/stripe-js": "^1.52.1",
     "better-sqlite3": "8.0.1",
+    "install": "^0.13.0",
+    "npm": "^9.6.5",
     "stripe": "^12.2.0"
   },
   "author": {

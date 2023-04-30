@@ -39,35 +39,33 @@ const Navbar = () => {
             <KeyboardArrowDownIcon />
           </div>
 
-
           <div className="item">
-            <Link className="link" to="/category/16">
+            <Link className="link" to="/category/1">
               Bath
             </Link>
           </div>
           <div className="item">
-            <Link className="link" to="/category/17">
+            <Link className="link" to="/category/2">
               Beauty
             </Link>
           </div>
           <div className="item">
-            <Link className="link" to="/category/18">
+            <Link className="link" to="/category/3">
               Grocery
             </Link>
           </div>
           <div className="item">
-            <Link className="link" to="/category/19">
+            <Link className="link" to="/category/4">
               Healthy Home
             </Link>
           </div>
           <div className="item">
-            <Link className="link" to="/category/20">
+            <Link className="link" to="/category/5">
               Sports
             </Link>
           </div>
           <div className="item">
-            <Link className="link" to="/category/21">
-
+            <Link className="link" to="/category/6">
               Supplements
             </Link>
           </div>
