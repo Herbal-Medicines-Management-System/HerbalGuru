@@ -21,7 +21,7 @@ const UserProfile = ({ userId }) => {
   useEffect(() => {
     // Fetch user data by ID and populate the form fields
     newRequest
-      .get(`/users/${currentUser._id}`)
+      .get(`/user/${currentUser._id}`)
       .then((res) => {
         const { username, email, country, desc, isSeller, phone } = res.data;
         setUsername(username);

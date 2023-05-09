@@ -138,7 +138,7 @@ const Navbar = () => {
                         </Link>
                       </>
                     )}
-                    MyProducts
+                   
                     <span>Orders</span>
                     <span>Messages</span>
                     <Link className='link' to='/profile'>
