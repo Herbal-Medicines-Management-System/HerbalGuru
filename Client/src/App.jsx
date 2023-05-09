@@ -6,6 +6,7 @@ import Product from './pages/product/Product';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import Login from './pages/login/Login';
+import UserProfile from './pages/user/UserProfile';
 import Register from './pages/register/Register';
 import MyProducts from './pages/supplier/myProducts/MyProducts';
 import Orders from './pages/supplier/orders/Orders';
@@ -48,6 +49,10 @@ function App() {
         {
           path: '/login',
           element: <Login />,
+        },
+        {
+          path: '/profile',
+          element: <UserProfile />,
         },
         {
           path: '/register',
