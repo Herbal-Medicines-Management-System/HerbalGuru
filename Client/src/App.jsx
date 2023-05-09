@@ -6,16 +6,13 @@ import Product from './pages/product/Product';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import Login from './pages/login/Login';
-import UserProfile from './pages/user/UserProfile';
 import Register from './pages/register/Register';
 import MyProducts from './pages/supplier/myProducts/MyProducts';
 import Orders from './pages/supplier/orders/Orders';
 import Add from './pages/supplier/add/Add';
-import Confirmation from './pages/Confirmation/Confirmation';
 import UpdateProduct from './pages/supplier/updateMyProduct/UpdateMyProduct';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import './app.scss';
-
 
 function App() {
   const queryClient = new QueryClient();
@@ -53,10 +50,6 @@ function App() {
           element: <Login />,
         },
         {
-          path: '/profile',
-          element: <UserProfile />,
-        },
-        {
           path: '/register',
           element: <Register />,
         },
@@ -71,10 +64,6 @@ function App() {
         {
           path: '/supplier/add',
           element: <Add />,
-        },
-        {
-          path: '/success',
-          element: <Confirmation />,
         },
         {
           path: '/supplier/update',

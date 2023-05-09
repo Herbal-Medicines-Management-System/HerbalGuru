@@ -9,13 +9,13 @@ const Categories = () => {
                 <div className='row'>
                     <img src="/img/bath.jpg" alt="bath" />
                     <button>
-                        <Link className='link' to='/category/16'>Bath</Link>
+                        <Link className='link' to='/category/1'>Bath</Link>
                     </button>
                 </div>
                 <div className='row'>
                     <img src="/img/beauty.jpg" alt="beauty" />
                     <button>
-                        <Link className='link' to='/category/17'>Beauty</Link>
+                        <Link className='link' to='/category/2'>Beauty</Link>
                     </button>
                 </div>
             </div>
@@ -23,7 +23,7 @@ const Categories = () => {
                 <div className='row'>
                     <img src="/img/grocery.jpg" alt="grocery" />
                     <button>
-                        <Link className='link' to='/category/18'>Grocery</Link>
+                        <Link className='link' to='/category/3'>Grocery</Link>
                     </button>
                 </div>
             </div>
@@ -33,7 +33,7 @@ const Categories = () => {
                         <div className='row'>
                             <img src="/img/health.jpg" alt="health" />
                             <button>
-                                <Link className='link' to='/category/19'>Healthy Home</Link>
+                                <Link className='link' to='/category/4'>Healthy Home</Link>
                             </button>
                         </div>
                     </div>
@@ -41,7 +41,7 @@ const Categories = () => {
                         <div className='row'>
                             <img src="/img/sports.jpg" alt="sports" />
                             <button>
-                                <Link className='link' to='/category/20'>Sports</Link>
+                                <Link className='link' to='/category/5'>Sports</Link>
                             </button>
                         </div>
                     </div>
@@ -49,7 +49,7 @@ const Categories = () => {
                 <div className='row'>
                     <img src="/img/supp.jpg" alt="supp" />
                     <button>
-                        <Link className='link' to='/category/21'>Supplements</Link>
+                        <Link className='link' to='/category/6'>Supplements</Link>
                     </button>
                 </div>
             </div>

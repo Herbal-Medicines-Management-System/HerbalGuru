@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
- import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import './MyProducts.scss';
 import { useNavigate } from 'react-router-dom';
 import getCurrentUser from '../../../utils/getCurrentUser';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import newRequest from '../../../utils/newRequest';
 
+// import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 
 function MyProducts() {
   const currentUser = getCurrentUser();
@@ -31,7 +32,10 @@ function MyProducts() {
 
   const handleDelete = (id) => {
     mutation.mutate(id);
-    
+    // const updatedData = data.filter(add => add._id !== id);
+    // // Update the data state with the filtered data
+    // data(updatedData);
+    queryFn();
   };
 
   const navigate = useNavigate();
@@ -49,9 +53,9 @@ function MyProducts() {
         <div className='container'>
           <div className='title'>
             <h1>My Products</h1>
-            <Link to="/supplier/add">
+            {/* <Link to="/supplier/myproducts"> */}
             <button>Add New Product</button>
-            </Link>
+            {/* </Link> */}
           </div>
           <table>
             <tr>
