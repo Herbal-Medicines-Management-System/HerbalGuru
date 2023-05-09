@@ -14,7 +14,7 @@ const FeaturedProducts = ({ type }) => {
             <div className='top'>
                 <h1>{type} products</h1>
                 <p>
-                    Herbal and Ayurvedic products are derived from natural sources such as herbs, plants, and minerals. These products have been used for centuries in traditional medicine to promote health and well-being.Herbal products include a wide range of items such as teas, tinctures, essential oils, and supplements. They are typically made from plant extracts and are used to support various aspects of health, including immune function, digestion, and stress relief.
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
                 </p>
             </div>
             <div className='bottom'>

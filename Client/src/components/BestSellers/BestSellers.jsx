@@ -14,7 +14,7 @@ const BestSellers = ({ type }) => {
             <div className='top'>
                 <h1>{type} seller</h1>
                 <p>
-                    Turmeric: Turmeric is a popular Ayurvedic herb that has anti-inflammatory and antioxidant properties. It is often used in cooking and as a dietary supplement.Amla: Amla, also known as Indian gooseberry, is a fruit that is rich in vitamin C and has antioxidant and anti-inflammatory properties. It is often used in Ayurvedic medicine to support the immune system and promote healthy skin and hair.Neem: Neem is an Ayurvedic herb that has antibacterial and antifungal properties. It is often used in skincare products to treat acne and other skin conditions.
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
                 </p>
             </div>
             <div className='bottom'>

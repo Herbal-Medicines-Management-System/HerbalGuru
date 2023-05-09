@@ -6,13 +6,11 @@ import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 
-
 import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.scss';
 import newRequest from '../../utils/newRequest';
 import Cart from '../Cart/Cart';
 import { useSelector } from 'react-redux';
-
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -38,34 +36,33 @@ const Navbar = () => {
             <img src='/img/sl.png' alt='sri_lanka_flag' />
             <KeyboardArrowDownIcon />
           </div>
-
-          <div className="item">
-            <Link className="link" to="/category/1">
+          <div className='item'>
+            <Link className='link' to='/category/1'>
               Bath
             </Link>
           </div>
-          <div className="item">
-            <Link className="link" to="/category/2">
+          <div className='item'>
+            <Link className='link' to='/category/2'>
               Beauty
             </Link>
           </div>
-          <div className="item">
-            <Link className="link" to="/category/3">
+          <div className='item'>
+            <Link className='link' to='/category/3'>
               Grocery
             </Link>
           </div>
-          <div className="item">
-            <Link className="link" to="/category/4">
+          <div className='item'>
+            <Link className='link' to='/category/4'>
               Healthy Home
             </Link>
           </div>
-          <div className="item">
-            <Link className="link" to="/category/5">
+          <div className='item'>
+            <Link className='link' to='/category/5'>
               Sports
             </Link>
           </div>
-          <div className="item">
-            <Link className="link" to="/category/6">
+          <div className='item'>
+            <Link className='link' to='/category/6'>
               Supplements
             </Link>
           </div>
@@ -108,7 +105,7 @@ const Navbar = () => {
           {!currentUser?.isSeller && (
             <div className='item'>
               <Link className='link' to='/register'>
-                Join
+                Become a Seller
               </Link>
             </div>
           )}
@@ -138,7 +135,6 @@ const Navbar = () => {
                         </Link>
                       </>
                     )}
-                    MyProducts
                     <span>Orders</span>
                     <span>Messages</span>
                     <Link className='link' to='/profile'>

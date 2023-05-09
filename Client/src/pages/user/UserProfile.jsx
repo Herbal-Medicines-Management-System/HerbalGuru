@@ -49,7 +49,7 @@ const UserProfile = ({ userId }) => {
         phone,
         
       })
-      // axios.put(`/api/users/${userId}`, { username, email, country, desc, isSeller })
+      
       .then((res) => {
         setMessage(res.data.message);
       })
