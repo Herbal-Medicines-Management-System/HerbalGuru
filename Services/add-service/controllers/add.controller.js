@@ -27,7 +27,7 @@ export const deleteAdd = async (req, res, next) => {
     if (add.userId !== req.userId)
       return next(createError(403, 'You can Delete your Adds only!'));
     await Add.findByIdAndDelete(req.params.id);
-    res.request.status(200).send('Add has been deleted!');
+    res.status(200).send('Add has been deleted!');
   } catch (err) {
     next(err);
   }
