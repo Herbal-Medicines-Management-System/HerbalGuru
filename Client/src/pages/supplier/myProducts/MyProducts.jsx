@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
- import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './MyProducts.scss';
 import { useNavigate } from 'react-router-dom';
 import getCurrentUser from '../../../utils/getCurrentUser';
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import newRequest from '../../../utils/newRequest';
+import Swal from 'sweetalert2';
+import { ToastContainer, toast } from 'react-toastify';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import EditIcon from '@mui/icons-material/Edit';
+import IconButton from '@mui/material/IconButton';
 
+import 'react-toastify/dist/ReactToastify.css';
 
 function MyProducts() {
   const currentUser = getCurrentUser();
@@ -20,25 +26,40 @@ function MyProducts() {
       }),
   });
 
-  const mutation = useMutation({
-    mutationFn: (id) => {
-      return newRequest.delete(`/adds/${id}`);
-    },
-    onSuccess: () => {
-      queryClient.invalidateQueries(['myProducts']);
-    },
-  });
-
-  const handleDelete = (id) => {
-    mutation.mutate(id);
-    
-  };
-
   const navigate = useNavigate();
 
-  const handlUpdate = (id) => {
-    navigate("/")
-  }
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: 'Confirm To Delete',
+      text: 'Are You Sure You Want To Delete This Product?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Yes',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteItem(id);
+      }
+    });
+  };
+
+  const deleteItem = async (id) => {
+    try {
+      await newRequest.delete(`/adds/${id}`);
+      queryClient.invalidateQueries(['myProducts']);
+      toast.success('Item deleted successfully!');
+    } catch (error) {
+      console.log('Error deleting item:', error);
+      toast.error('Error deleting item');
+    }
+  };
+
+  const handleUpdate = (id) => {
+    console.log('my productID', id);
+    navigate(`/supplier/updateproduct/${id}`);
+  };
+
   return (
     <div className='myProducts'>
       {isLoading ? (
@@ -49,8 +70,8 @@ function MyProducts() {
         <div className='container'>
           <div className='title'>
             <h1>My Products</h1>
-            <Link to="/supplier/add">
-            <button>Add New Product</button>
+            <Link to='/supplier/add'>
+              <button>Add New Product</button>
             </Link>
           </div>
           <table>
@@ -71,24 +92,25 @@ function MyProducts() {
                 <td>{add.price}</td>
                 <td>{add.sales}</td>
                 <td>
-                  <img
-                    className='deleteIcon'
-                    src='../../../../public/imgIcons/delete-bin-5-line.png'
-                    alt=''
-                    onClick={() => handleDelete(add._id)}
-                  />
-                  <img
-                    className='deleteIcon'
-                    src='../../../../public/imgIcons/update.png'
-                    alt=''
-                    onClick={() => handlUpdate(add._id)}
-                  />
+                  <IconButton onClick={() => handleDelete(add._id)}>
+                    {' '}
+                    <DeleteForeverIcon
+                      style={{ color: 'red', marginRight: '1vh' }}
+                    />
+                  </IconButton>
+                  <IconButton onClick={() => handleUpdate(add._id)}>
+                    {' '}
+                    <EditIcon
+                      style={{ color: 'yellow', marginLeft: '1vh' }}
+                    />
+                  </IconButton>
                 </td>
               </tr>
             ))}
           </table>
         </div>
       )}
+      <ToastContainer toastStyle={{}} />
     </div>
   );
 }
