@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import getCurrentUser from '../../utils/getCurrentUser';
+import {  useNavigate } from 'react-router-dom';
 import newRequest from '../../utils/newRequest';
 import './UserProfile.scss';
-<script src="sweetalert2.all.min.js"></script>
+<script src='sweetalert2.all.min.js'></script>;
 // import { Alert } from '@material-ui/lab';
 // import Button from '@material-ui/core/Button';
-
+import { toast } from 'react-toastify';
 
 const UserProfile = ({ userId }) => {
   const [username, setUsername] = useState('');
@@ -15,6 +16,7 @@ const UserProfile = ({ userId }) => {
   const [isSeller, setIsSeller] = useState(false);
   const [phone, setPhone] = useState('');
   const [message, setMessage] = useState('');
+  const navigate = useNavigate();
 
   const currentUser = getCurrentUser();
 
@@ -38,20 +40,37 @@ const UserProfile = ({ userId }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    if (username.trim() === '') {
+      toast.error('Please Enter The username.');
+      return;
+    }
+    if (email.trim() === '') {
+      toast.error('Please Enter The Email.');
+      return;
+    }
+    if (country.trim() === '') {
+      toast.error('Please Enter The Country.');
+      return;
+    }
+
     const stringUserId = currentUser._id.toString();
     newRequest
-      .put(`/users/${stringUserId}`, {
+      .put(`/user/${stringUserId}`, {
         username,
         email,
         country,
         desc,
-        isSeller,
         phone,
-        
       })
-      // axios.put(`/api/users/${userId}`, { username, email, country, desc, isSeller })
+
       .then((res) => {
         setMessage(res.data.message);
+        navigate('/');
+
+        toast.success('User Profile Update Successfully', {
+          position: toast.POSITION.TOP_RIGHT,
+        });
       })
       .catch((err) => console.log(err));
   };
@@ -117,21 +136,9 @@ const UserProfile = ({ userId }) => {
             rows='10'
             value={desc}
             onChange={(e) => setDesc(e.target.value)}
-
           ></textarea>
         </div>
       </form>
-      {/* {message && <p>{message}</p>} */}
-      {/* <Alert severity="success">
-  <AlertTitle>Success</AlertTitle>
-  This is a success alert — <strong>check it out!</strong>
-</Alert> */}
-{/* <div class="alert">
-  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-  <strong>{message && <p>{message}</p>}</strong> 
-</div> */}
-
-
     </div>
   );
 };
