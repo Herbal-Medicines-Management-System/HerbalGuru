@@ -6,11 +6,11 @@ export const INITIAL_STATE = {
     // images: [],
     desc: "",
     shortTitle: "",
-    // shortDescc: "",
+     shortDesc: "",
     deliveryTime: 0,
-    availableQuntity: 0,
+    availableQuntity: "",
     features: [],
-    price: 0.00,
+    price: "",
   };
   
   export const addReducer = (state, action) => {

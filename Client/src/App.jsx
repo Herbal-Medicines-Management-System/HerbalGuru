@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import React from 'react';
 import Home from './pages/home/Home';
 import Category from './pages/Category/Category';
@@ -16,7 +17,6 @@ import UpdateProduct from './pages/supplier/updateMyProduct/UpdateMyProduct';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import './app.scss';
 
-
 function App() {
   const queryClient = new QueryClient();
   const Layout = () => {
@@ -26,6 +26,7 @@ function App() {
           <Navbar />
           <Outlet />
           <Footer />
+          <ToastContainer />
         </QueryClientProvider>
       </div>
     );
@@ -77,7 +78,7 @@ function App() {
           element: <Confirmation />,
         },
         {
-          path: '/supplier/update',
+          path: '/supplier/updateproduct/:productId',
           element: <UpdateProduct />,
         },
       ],
