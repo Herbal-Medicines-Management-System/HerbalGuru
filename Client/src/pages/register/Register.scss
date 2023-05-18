@@ -1,8 +1,9 @@
 .register {
+  margin-top: 10vh;
     display: flex;
     align-items: center;
     justify-content: center;
-  
+  margin-bottom: -20vh;
     form {
       width: 960px;
       padding: 200px 0px;
@@ -12,6 +13,12 @@
       h1 {
         color: gray;
         margin-bottom: 20px;
+        font-size: 42px;
+      }
+      h2{
+        margin-top: 10vh;
+        color: gray;
+        // margin-bottom: 10px;
       }
   
       .left,
@@ -19,7 +26,7 @@
         flex: 1;
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 20px;
         justify-content: space-between;
   
         label {
@@ -107,6 +114,14 @@
           }
         }
       }
+    }
+       .error {
+      color: red;
+      font-size: 12px;
+    }
+    .error-message {
+      color: red;
+      text-align: center;
     }
   }
   

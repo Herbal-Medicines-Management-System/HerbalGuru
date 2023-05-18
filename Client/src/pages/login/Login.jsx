@@ -17,6 +17,12 @@ function Login() {
       const res = await newRequest.post('/auth/login', values);
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('currentUser', JSON.stringify(res.data.info));
+
+      const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+      toast.success(currentUser.username + " Login Successfully", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
       navigate('/');
     } catch (err) {
       setError(err.response.data);
