@@ -43,6 +43,10 @@ const addSchema = new Schema(
       type: Number,
       required: true,
     },
+    deliveryTime: {
+      type: Number,
+      required: false,
+    },
     shortTitle: {
       type: String,
       required: true,
