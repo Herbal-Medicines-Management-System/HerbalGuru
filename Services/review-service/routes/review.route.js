@@ -15,6 +15,7 @@ router.post('/', verifyToken, createReview);
 router.get('/:addId', getReviews);
 
 //delete revire route
-router.delete('/:id', deleteReview);
+router.delete('/:id', verifyToken, deleteReview);
+
 
 export default router;
