@@ -71,7 +71,7 @@ const Review = () => {
     // }
 
     mutation.mutate(state);
-     navigate('/');
+    navigate('/');
     toast.success(' New Review Added Successfully', {
       position: toast.POSITION.TOP_RIGHT,
     });
@@ -186,7 +186,6 @@ const Review = () => {
           >
             <thead>
               <tr>
-                {/* <th style={{ marginRight: '10px' }}>User</th> */}
                 <th style={{ marginRight: '10px' }}>Comment</th>
                 <th style={{ marginRight: '100px' }}>Rating</th>
                 <th style={{ marginRight: '10px' }}>Action</th>
