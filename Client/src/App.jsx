@@ -14,6 +14,7 @@ import MyProducts from './pages/supplier/myProducts/MyProducts';
 import Orders from './pages/supplier/orders/Orders';
 import Add from './pages/supplier/add/Add';
 import Confirmation from './pages/Confirmation/Confirmation';
+import Form from './pages/Form/Form';
 import UpdateProduct from './pages/supplier/updateMyProduct/UpdateMyProduct';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import './app.scss';
@@ -41,6 +42,10 @@ function App() {
         {
           path: '/',
           element: <Home />,
+        },
+        {
+          path: '/delivery',
+          element: <Form />,
         },
         {
           path: '/category/:id',

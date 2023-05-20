@@ -3,7 +3,6 @@ import createError from '../utils/createError.js';
 
 //create a new delivery for sellers
 export const createDeliver = async (req, res, next) => {
-  console.log('test diliver');
   if (req.isSeller)
     return next(createError(403, 'Only users can create a delivery option!'));
 

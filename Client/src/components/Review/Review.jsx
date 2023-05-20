@@ -76,7 +76,7 @@ const Review = () => {
       position: toast.POSITION.TOP_RIGHT,
     });
   };
- 
+
   useEffect(() => {
     // Fetch product data from the server using productId
     const fetchProduct = async () => {
@@ -252,8 +252,6 @@ const Review = () => {
         ))}
       </div> */}
       <hr />
-      {error && <div className='error-message'>{error}</div>}
-        
       <ToastContainer toastStyle={{}} />
     </div>
   );
