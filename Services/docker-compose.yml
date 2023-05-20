@@ -37,6 +37,15 @@ services:
       MONGO_URL: mongodb+srv://herbaleguru:herbaleguru@cluster0.01eo9pp.mongodb.net/HerbalGuru
       JWT_KEY: 9F4U/YJTCx1v0+G4jtFBCA==
 
+  deliver-service:
+    build:
+      context: ./deliver-service
+    ports:
+      - '5004:5004'
+    environment:
+      MONGO_URL: mongodb+srv://herbaleguru:herbaleguru@cluster0.01eo9pp.mongodb.net/HerbalGuru
+      JWT_KEY: 9F4U/YJTCx1v0+G4jtFBCA==
+
   local-api-gateway:
     build:
       context: ./local-api-gateway
@@ -47,4 +56,5 @@ services:
       - auth-service
       - user-service
       - review-service
+      - deliver-service
       

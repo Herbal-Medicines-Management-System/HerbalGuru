@@ -60,6 +60,18 @@ app.use(
     },
   })
 );
+
+app.use(
+  '/deliver',
+  createProxyMiddleware({
+    target: 'http://deliver-service:5004',
+    onProxyReq: fixRequestBody,
+    changeOrigin: true,
+    pathRewrite: {
+      '/deliver': '/',
+    },
+  })
+);
 app.use(cors());
 // Start the server
 
