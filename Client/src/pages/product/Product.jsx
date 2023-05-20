@@ -10,6 +10,7 @@ import useFetch from '../../hooks/useFetch';
 import { useParams } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/cartReducer";
+import Review from "../../components/Review/Review"
 
 const Product = () => {
 
@@ -114,7 +115,7 @@ const Product = () => {
           </div>
         </>
       )}
-    </div></><CustomersViwed type="customers" /></>
+    </div></><Review/><CustomersViwed type="customers" /></>
   );
 };
 
