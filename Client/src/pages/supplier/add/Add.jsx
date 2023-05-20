@@ -208,7 +208,7 @@ const Add = () => {
             <input
               type='text'
               name='shortTitle'
-              placeholder='e.g. One-page web design'
+              placeholder='e.g. Enter Your Service Title'
               onChange={handleChange}
             />
             <label htmlFor=''>Short Description</label>
@@ -259,7 +259,7 @@ const Add = () => {
                 </div>
               ))}
             </div>
-            <label htmlFor=''>Price</label>
+            <label htmlFor=''>Price(LKR)</label>
             <input
               type='number'
               onChange={handleChange}

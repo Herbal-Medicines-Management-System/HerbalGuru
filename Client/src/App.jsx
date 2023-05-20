@@ -3,6 +3,7 @@ import { ToastContainer } from 'react-toastify';
 import React from 'react';
 import Home from './pages/home/Home';
 import Category from './pages/Category/Category';
+import Review from './components/Review/Review';
 import Product from './pages/product/Product';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
@@ -46,8 +47,12 @@ function App() {
           element: <Category />,
         },
         {
-          path: '/product/:id',
-          element: <Product />,
+          path: '/category/:id',
+          element: <Category />,
+        },
+        {
+          path: '/review/:productId',
+          element: <Review />,
         },
         {
           path: '/login',
